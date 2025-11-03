@@ -1,0 +1,381 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #e2e2e2;
+  min-height: 100vh;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+/* Zmienne CSS dla trybu jasnego (domyślne) */
+:root {
+  --bg-primary: #f5f6fa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --border-color: #e1e8ed;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --accent-color: #667eea;
+  --income-color: #10b981;
+  --expense-color: #ef4444;
+  --warning-color: #f59e0b;
+  --success-color: #059669;
+}
+
+/* Tryb ciemny */
+.dark-mode {
+  --bg-primary: #0f172a;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --accent-color: #3b82f6;
+  --income-color: #10b981;
+  --expense-color: #ef4444;
+  --warning-color: #f59e0b;
+  --success-color: #059669;
+}
+
+/* Bazowe style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+/* ... reszta istniejących stylów ... */
+
+/* Aktualizacja istniejących komponentów z użyciem zmiennych CSS */
+.app {
+  min-height: 100vh;
+  padding: 20px;
+  background: var(--bg-primary);
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 30px;
+  background: var(--bg-secondary);
+  backdrop-filter: blur(10px);
+  color: var(--text-primary);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  border: 1px solid var(--border-color);
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.app-header p {
+  font-size: 1.3rem;
+  opacity: 0.8;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Stylowanie wszystkich kontenerów z użyciem zmiennych */
+
+/* Inputy i selecty */
+input,
+select,
+textarea {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  color: black;
+  transition: border-color 0.2s;
+}
+input[type="date"] {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: inner-spin-button; /* zostaw strzałki */
+  background: var(--bg-secondary);
+  border-radius: 0;
+  border: none;
+  width: 1.75rem;
+  height: 100%;
+}
+
+.dark-mode input[type="number"]::-webkit-inner-spin-button,
+.dark-mode input[type="number"]::-webkit-outer-spin-button {
+  background: var(--bg-secondary);
+}
+
+.dark-mode input[type="number"]::-webkit-inner-spin-button {
+  filter: invert(0.8); /* przyciemnij same strzałki */
+}
+input::placeholder {
+  color: var(--text-muted);
+}
+.app {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: #2c3e50;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  background-clip: text;
+}
+
+.app-header p {
+  font-size: 1.3rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* GÓRNA SEKCJA: Formularz + Lista w jednej linii */
+.top-section {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ŚRODKOWA SEKCJA: Wizualizacja - pełna szerokość */
+.charts-section {
+  width: 100%;
+}
+
+/* DOLNA SEKCJA: Podsumowanie - pełna szerokość */
+.summary-section {
+  width: 100%;
+}
+
+/* Stylowanie komponentów wewnątrz sekcji */
+.form-container > div {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.charts-section > div {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.summary-section > div {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsywność */
+@media (max-width: 1400px) {
+  .top-section {
+    grid-template-columns: 380px 1fr;
+    gap: 25px;
+  }
+
+  .app-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .top-section {
+    grid-template-columns: 350px 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .app {
+    padding: 15px;
+  }
+
+  .top-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .form-container {
+    height: 100%;
+  }
+  .form-container {
+    position: static;
+    height: 100%;
+  }
+
+  .app-header {
+    padding: 25px 20px;
+  }
+
+  .app-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .app-header p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
+  }
+
+  .app-header {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+
+  .app-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .app-header p {
+    font-size: 1rem;
+  }
+
+  .app-container {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .app-header p {
+    font-size: 0.9rem;
+  }
+}
+.form-container {
+  height: 100%;
+}
+/* Sekcja budżetów pod nagłówkiem */
+.budgets-main-section {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto 30px auto;
+}
+/* Sekcja celów oszczędnościowych */
+.savings-goals-section {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto 30px auto;
+}
+
+.savings-goals-section > div {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.budgets-main-section > div {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+/* Sekcja cyklicznych płatności */
+.recurring-payments-section {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto 30px auto;
+}
+
+/* Sekcja eksportu danych */
+.export-data-section {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto 30px auto;
+}
+
+.export-data-section > div {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Responsywność header */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}

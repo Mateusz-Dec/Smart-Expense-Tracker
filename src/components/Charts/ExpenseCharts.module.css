@@ -1,0 +1,159 @@
+.container {
+  background: transparent;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 0;
+}
+
+.container h2 {
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.chartsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Pełna szerokość dla wykresu słupkowego */
+.fullWidthChart {
+  width: 100%;
+}
+
+.fullWidthChart .chartContainer {
+  height: 500px;
+  margin-top: 20px;
+}
+
+/* Wiersz z wykresami kołowymi */
+.pieChartsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+}
+
+.pieChart {
+  flex: 1;
+  min-width: 0;
+}
+
+.pieChart .chartContainer {
+  height: 450px;
+  margin-top: 20px;
+}
+
+.chartHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.chartHeader h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 100px 20px;
+  color: #64748b;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.emptyState svg {
+  margin-bottom: 25px;
+  opacity: 0.5;
+}
+
+.emptyState p {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.emptyState span {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.tooltip {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e2e8f0;
+  min-width: 220px;
+}
+
+.tooltipLabel {
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.tooltipItem {
+  margin: 8px 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Responsywność */
+@media (max-width: 1200px) {
+  .pieChartsRow {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .pieChart .chartContainer {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .container h2 {
+    font-size: 1.6rem;
+  }
+
+  .chartHeader h3 {
+    font-size: 1.3rem;
+  }
+
+  .fullWidthChart .chartContainer {
+    height: 400px;
+  }
+
+  .pieChart .chartContainer {
+    height: 350px;
+  }
+
+  .emptyState {
+    padding: 80px 15px;
+  }
+
+  .emptyState p {
+    font-size: 1.3rem;
+  }
+
+  .emptyState span {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,493 @@
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #2c3e50;
+}
+
+.title h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Statystyki */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+}
+
+.statItem div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statItem span {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.statItem strong {
+  font-size: 1.1rem;
+  color: #374151;
+  font-weight: 700;
+}
+
+/* Nadchodzące płatności */
+.upcomingSection {
+  background: #fff7ed;
+  border: 2px solid #fdba74;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.upcomingSection h3 {
+  margin: 0 0 15px 0;
+  color: #ea580c;
+  font-size: 1.1rem;
+}
+
+.upcomingList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upcomingItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #ea580c;
+}
+
+.upcomingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.paymentName {
+  font-weight: 600;
+  color: #374151;
+}
+
+.paymentAmount {
+  font-weight: 700;
+  color: #dc2626;
+  font-size: 0.9rem;
+}
+
+.upcomingMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.dueDate {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.payNowButton {
+  background: #ea580c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.payNowButton:hover {
+  background: #c2410c;
+}
+
+/* Formularz */
+.paymentForm {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 2px dashed #cbd5e1;
+}
+
+.paymentForm h3 {
+  margin: 0 0 15px 0;
+  color: #374151;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input {
+  font-size: 1rem;
+}
+
+.select {
+  font-size: 1rem;
+  color: #1f2937;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+
+.select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+}
+
+.saveButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+  justify-content: center;
+}
+
+.saveButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.cancelButton {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+}
+
+.cancelButton:hover {
+  background: #4b5563;
+}
+
+/* Lista płatności */
+.paymentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: #64748b;
+}
+
+.emptyState svg {
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+.emptyState p {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.emptyState span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.paymentItem {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #667eea;
+}
+
+.paymentItem.inactive {
+  opacity: 0.6;
+  background: #f8fafc;
+}
+
+.paymentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.paymentInfo h4 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.paymentMeta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.amount {
+  font-weight: 700;
+  color: #dc2626;
+  font-size: 0.9rem;
+}
+
+.frequency {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.category {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.paymentActions {
+  display: flex;
+  gap: 8px;
+}
+
+.toggleButton,
+.payButton,
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.toggleButton.active {
+  background: #dcfce7;
+}
+
+.toggleButton:not(.active) {
+  background: #fef2f2;
+}
+
+.payButton {
+  background: #f0f9ff;
+}
+
+.payButton:hover {
+  background: #e0f2fe;
+}
+
+.deleteButton {
+  color: #ef4444;
+}
+
+.deleteButton:hover {
+  background: #fef2f2;
+}
+
+.paymentFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.nextPayment {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.inactiveLabel {
+  background: #ef4444;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Responsywność */
+@media (max-width: 1024px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .paymentHeader {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .paymentMeta {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .title h2 {
+    font-size: 1.3rem;
+  }
+
+  .upcomingItem {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .upcomingMeta {
+    align-items: stretch;
+  }
+
+  .formActions {
+    flex-direction: column;
+  }
+
+  .paymentFooter {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
+.paymentActions {
+  display: flex;
+  gap: 8px;
+}
+
+.editButton,
+.toggleButton,
+.payButton,
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.editButton {
+  color: #3b82f6;
+}
+
+.editButton:hover {
+  background: #dbeafe;
+}
+
+.toggleButton.active {
+  background: #dcfce7;
+}
+
+.toggleButton:not(.active) {
+  background: #fef2f2;
+}
+
+.payButton {
+  background: #f0f9ff;
+}
+
+.payButton:hover {
+  background: #e0f2fe;
+}
+
+.deleteButton {
+  color: #ef4444;
+}
+
+.deleteButton:hover {
+  background: #fef2f2;
+}

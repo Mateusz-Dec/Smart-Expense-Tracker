@@ -1,0 +1,392 @@
+.container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e8ed;
+}
+
+.container h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: #7f8c8d;
+}
+
+.emptyState p {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.emptyState span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.transactionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 600px;
+}
+@media (max-width: 1024px) {
+  .transactionItem {
+    flex-direction: column;
+  }
+  .transactionInfo {
+    display: flex;
+    gap: 10px;
+  }
+}
+.transactionsList {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.transactionItem {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid;
+  transition: all 0.2s;
+  gap: 12px;
+}
+
+.transactionItem:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.transactionItem.income {
+  border-left-color: #27ae60;
+  background-color: #f8fff9;
+}
+
+.transactionItem.expense {
+  border-left-color: #e74c3c;
+  background-color: #fffafa;
+}
+
+.transactionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.transactionItem.income .transactionIcon {
+  background-color: #d5f4e1;
+  color: #27ae60;
+}
+
+.transactionItem.expense .transactionIcon {
+  background-color: #fde0dc;
+  color: #e74c3c;
+}
+
+.transactionInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.transactionDescription {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.transactionMeta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #7f8c8d;
+}
+
+.category {
+  background-color: #ecf0f1;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.date {
+  font-style: italic;
+}
+
+.transactionAmount {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.transactionItem.income .transactionAmount {
+  color: #27ae60;
+}
+
+.transactionItem.expense .transactionAmount {
+  color: #e74c3c;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  color: #95a5a6;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.deleteButton:hover {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Scrollbar styling */
+.transactionsList::-webkit-scrollbar {
+  width: 6px;
+  .container {
+    background: transparent;
+    padding: 25px;
+    border-radius: 20px;
+  }
+
+  .container h2 {
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+  }
+
+  .emptyState {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-secondary);
+  }
+
+  .emptyState p {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .emptyState span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .transactionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+
+  .transactionItem {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid;
+    transition: all 0.2s;
+    gap: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+  }
+
+  .transactionItem:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+
+  .transactionItem.income {
+    border-left-color: var(--income-color);
+    background: rgba(16, 185, 129, 0.05);
+  }
+
+  .transactionItem.expense {
+    border-left-color: var(--expense-color);
+    background: rgba(239, 68, 68, 0.05);
+  }
+
+  .transactionIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .transactionItem.income .transactionIcon {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: var(--income-color);
+  }
+
+  .transactionItem.expense .transactionIcon {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: var(--expense-color);
+  }
+
+  .transactionInfo {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .transactionDescription {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    font-size: 1rem;
+  }
+
+  .transactionMeta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .category {
+    background-color: var(--bg-secondary);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .date {
+    font-style: italic;
+  }
+
+  .transactionAmount {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  .transactionItem.income .transactionAmount {
+    color: var(--income-color);
+  }
+
+  .transactionItem.expense .transactionAmount {
+    color: var(--expense-color);
+  }
+
+  .transactionActions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .editButton,
+  .deleteButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .editButton {
+    color: var(--accent-color);
+  }
+
+  .editButton:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+
+  .deleteButton {
+    color: var(--expense-color);
+  }
+
+  .deleteButton:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+  }
+
+  /* Scrollbar styling */
+  .transactionsList::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .transactionsList::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 3px;
+  }
+
+  .transactionsList::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 3px;
+  }
+
+  .transactionsList::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+  }
+}
+
+.transactionsList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.transactionsList::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.transactionsList::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+.transactionActions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.editButton {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.editButton:hover {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.deleteButton:hover {
+  background-color: #ef4444;
+  color: white;
+}
