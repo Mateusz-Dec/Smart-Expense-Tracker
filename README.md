@@ -124,4 +124,3 @@ smart-expense-tracker/
 
 ---
 
-Miłego korzystania! Jeśli masz sugestie lub chcesz rozbudować aplikację, zapraszam do kontrybucji.
