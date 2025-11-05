@@ -115,6 +115,11 @@ smart-expense-tracker/
 - Node.js w wersji ≥ 18.
 - Przeglądarka z obsługą `localStorage` oraz modułów ES.
 
+## 🚀 Demo
+
+**Live Demo**: [[https://twoja-domena.vercel.app](https://twoja-domena.vercel.app)](https://smart-expense-tracker-sandy.vercel.app/)
+
+
 ## Możliwe kierunki rozwoju
 
 - Integracja z backendem i synchronizacja wielu użytkowników.
