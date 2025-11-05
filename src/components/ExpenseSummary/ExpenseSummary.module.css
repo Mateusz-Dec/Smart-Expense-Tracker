@@ -60,7 +60,6 @@
   margin-right: 20px;
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.2) !important;
-  backdrop-filter: blur(10px);
 }
 
 .cardContent {
