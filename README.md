@@ -117,7 +117,7 @@ smart-expense-tracker/
 
 ## 🚀 Demo
 
-**Live Demo**: [[https://twoja-domena.vercel.app](https://twoja-domena.vercel.app)](https://smart-expense-tracker-sandy.vercel.app/)
+**Live Demo**: https://smart-expense-tracker-sandy.vercel.app/
 
 
 ## Możliwe kierunki rozwoju
