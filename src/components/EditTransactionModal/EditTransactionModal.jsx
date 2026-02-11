@@ -130,7 +130,15 @@ function EditTransactionModal({ isOpen, onClose, transaction }) {
 
   return (
     <div className={styles.modalOverlay}>
-      <div className={styles.modal}>
+      <div
+        className={styles.modal}
+        style={{
+          backgroundColor: "var(--bg-card)",
+          color: "var(--text-primary)",
+          border: "1px solid var(--border-color)",
+          boxShadow: "0 20px 25px -5px var(--shadow-color)",
+        }}
+      >
         <div className={styles.modalHeader}>
           <div className={styles.titleContainer}>
             <Edit3 size={24} />

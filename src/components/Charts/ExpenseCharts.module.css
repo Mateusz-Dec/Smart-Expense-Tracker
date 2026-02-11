@@ -7,7 +7,7 @@
 
 .container h2 {
   margin-bottom: 30px;
-  color: #2c3e50;
+  color: var(--text-primary);
   font-size: 2rem;
   text-align: center;
   font-weight: 700;
@@ -52,9 +52,9 @@
   align-items: center;
   gap: 15px;
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: var(--text-primary);
   padding-bottom: 20px;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .chartHeader h3 {
@@ -66,10 +66,10 @@
 .emptyState {
   text-align: center;
   padding: 100px 20px;
-  color: #64748b;
-  background: white;
+  color: var(--text-secondary);
+  background: var(--bg-card);
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px var(--shadow-color);
 }
 
 .emptyState svg {
@@ -89,20 +89,20 @@
 }
 
 .tooltip {
-  background: white;
+  background: var(--bg-card);
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  border: 1px solid var(--border-color);
   min-width: 220px;
 }
 
 .tooltipLabel {
   font-weight: 700;
   margin-bottom: 12px;
-  color: #2c3e50;
+  color: var(--text-primary);
   font-size: 1.1rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 10px;
 }
 

@@ -1,26 +1,18 @@
 import React, { useState } from "react";
 import { useExpense } from "../../context/ExpenseContext";
 import {
-  Calendar,
   Plus,
   Repeat,
-  Bell,
   Trash2,
-  Edit3,
   CreditCard,
+  Calendar,
+  Bell,
+  Edit3,
 } from "lucide-react";
 import toast from "react-hot-toast";
-import EditRecurringPaymentModal from "./EditRecurringPaymentModal";
 import styles from "./RecurringPayments.module.css";
-
-const CATEGORIES = [
-  "Rachunki",
-  "Subskrypcje",
-  "Kredyt",
-  "Czynsz",
-  "Transport",
-  "Inne",
-];
+import EditRecurringPaymentModal from "./EditRecurringPaymentModal";
+import { EXPENSE_CATEGORIES as CATEGORIES } from "../../utils/constants";
 
 function RecurringPayments() {
   const { addTransaction } = useExpense();
@@ -91,8 +83,8 @@ function RecurringPayments() {
       prev.map((payment) =>
         payment.id === id
           ? { ...payment, isActive: !payment.isActive }
-          : payment
-      )
+          : payment,
+      ),
     );
   };
 
@@ -104,8 +96,8 @@ function RecurringPayments() {
   const handleSavePayment = (updatedPayment) => {
     setPayments((prev) =>
       prev.map((payment) =>
-        payment.id === updatedPayment.id ? updatedPayment : payment
-      )
+        payment.id === updatedPayment.id ? updatedPayment : payment,
+      ),
     );
     toast.success("Płatność zaktualizowana! ✏️");
   };
@@ -124,7 +116,7 @@ function RecurringPayments() {
     // Aktualizuj datę kolejnej płatności
     const nextDate = calculateNextDate(payment.nextDate, payment.frequency);
     setPayments((prev) =>
-      prev.map((p) => (p.id === payment.id ? { ...p, nextDate } : p))
+      prev.map((p) => (p.id === payment.id ? { ...p, nextDate } : p)),
     );
 
     toast.success(`Dodano płatność: ${payment.name}`);
@@ -197,11 +189,27 @@ function RecurringPayments() {
             <h2>Cykliczne płatności</h2>
           </div>
           <button
-            onClick={() => setIsAdding(true)}
+            onClick={() => setIsAdding(!isAdding)}
             className={styles.addButton}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              background: isAdding
+                ? "var(--expense-color)"
+                : "var(--accent-color)",
+              color: "white",
+              border: "none",
+              padding: "0.75rem 1.5rem",
+              borderRadius: "10px",
+              fontWeight: 600,
+              cursor: "pointer",
+              transition: "all 0.2s",
+              boxShadow: "0 4px 6px -1px var(--shadow-color)",
+            }}
           >
-            <Plus size={18} />
-            Nowa płatność
+            {isAdding ? <Trash2 size={18} /> : <Plus size={18} />}
+            {isAdding ? "Anuluj" : "Nowa płatność"}
           </button>
         </div>
 
@@ -345,12 +353,7 @@ function RecurringPayments() {
                   <Repeat size={18} />
                   Dodaj płatność
                 </button>
-                <button
-                  onClick={() => setIsAdding(false)}
-                  className={styles.cancelButton}
-                >
-                  Anuluj
-                </button>
+              </div>
               </div>
             </div>
           </div>
@@ -432,7 +435,7 @@ function RecurringPayments() {
                     <Calendar size={14} />
                     Następna płatność:{" "}
                     {new Date(payment.nextDate).toLocaleDateString(
-                      "pl-PL"
+                      "pl-PL",
                     )} • {getDaysUntil(payment.nextDate)}
                   </span>
                   {!payment.isActive && (

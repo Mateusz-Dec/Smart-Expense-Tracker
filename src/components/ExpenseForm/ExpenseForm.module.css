@@ -6,7 +6,7 @@
 
 .formContainer h2 {
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: var(--text-primary);
   font-size: 1.5rem;
   text-align: center;
 }
@@ -76,23 +76,28 @@
 .input {
   font-size: 1rem;
   color: var(--text-primary);
-  background: var(--bg-card);
+  background: var(--bg-input);
+  border-color: var(--border-color);
 }
 
 .select {
   font-size: 1rem;
-  color: #1f2937;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border-color: var(--border-color);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .input:focus {
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 0.25rem rgba(118, 75, 162, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.2);
 }
 
 .select:focus {
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 0.25rem rgba(118, 75, 162, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.2);
 }
 
 .submitButton {
@@ -104,7 +109,9 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .submitButton:hover {

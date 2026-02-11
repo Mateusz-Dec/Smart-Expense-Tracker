@@ -10,16 +10,7 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import styles from "./Budgets.module.css";
-
-const CATEGORIES = [
-  "Jedzenie",
-  "Transport",
-  "Rozrywka",
-  "Zdrowie",
-  "Zakupy",
-  "Rachunki",
-  "Inne",
-];
+import { EXPENSE_CATEGORIES as CATEGORIES } from "../../utils/constants";
 
 function Budgets() {
   const { allTransactions, summary } = useExpense();
@@ -36,7 +27,7 @@ function Budgets() {
     .filter((t) => t.type === "expense")
     .reduce((acc, transaction) => {
       const existing = acc.find(
-        (item) => item.category === transaction.category
+        (item) => item.category === transaction.category,
       );
       if (existing) {
         existing.amount += transaction.amount;
@@ -103,9 +94,28 @@ function Budgets() {
           <Target size={24} />
           <h2>Zarządzanie budżetami</h2>
         </div>
-        <button onClick={() => setIsAdding(true)} className={styles.addButton}>
-          <Plus size={18} />
-          Dodaj budżet
+        <button
+          onClick={() => setIsAdding(!isAdding)}
+          className={styles.addButton}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            background: isAdding
+              ? "var(--expense-color)"
+              : "var(--accent-color)",
+            color: "white",
+            border: "none",
+            padding: "0.75rem 1.5rem",
+            borderRadius: "10px",
+            fontWeight: 600,
+            cursor: "pointer",
+            transition: "all 0.2s",
+            boxShadow: "0 4px 6px -1px var(--shadow-color)",
+          }}
+        >
+          {isAdding ? <Trash2 size={18} /> : <Plus size={18} />}
+          {isAdding ? "Anuluj" : "Dodaj budżet"}
         </button>
       </div>
 
@@ -152,12 +162,6 @@ function Budgets() {
               <button onClick={addBudget} className={styles.saveButton}>
                 Zapisz
               </button>
-              <button
-                onClick={() => setIsAdding(false)}
-                className={styles.cancelButton}
-              >
-                Anuluj
-              </button>
             </div>
           </div>
         </div>
@@ -175,7 +179,7 @@ function Budgets() {
           budgets.map((budget) => {
             const progress = getBudgetProgress(budget.category);
             const spending = categorySpending.find(
-              (s) => s.category === budget.category
+              (s) => s.category === budget.category,
             );
             const spent = spending ? spending.amount : 0;
 
@@ -283,7 +287,7 @@ function Budgets() {
                 {
                   budgets.filter((budget) => {
                     const spending = categorySpending.find(
-                      (s) => s.category === budget.category
+                      (s) => s.category === budget.category,
                     );
                     return spending ? spending.amount <= budget.amount : true;
                   }).length
@@ -297,7 +301,7 @@ function Budgets() {
                 {
                   budgets.filter((budget) => {
                     const spending = categorySpending.find(
-                      (s) => s.category === budget.category
+                      (s) => s.category === budget.category,
                     );
                     return spending ? spending.amount > budget.amount : false;
                   }).length
@@ -309,7 +313,7 @@ function Budgets() {
           {/* Całkowite przekroczenie budżetów */}
           {budgets.some((budget) => {
             const spending = categorySpending.find(
-              (s) => s.category === budget.category
+              (s) => s.category === budget.category,
             );
             return spending ? spending.amount > budget.amount : false;
           }) && (
@@ -324,14 +328,14 @@ function Budgets() {
                   }).format(
                     budgets.reduce((total, budget) => {
                       const spending = categorySpending.find(
-                        (s) => s.category === budget.category
+                        (s) => s.category === budget.category,
                       );
                       const overBudget =
                         spending && spending.amount > budget.amount
                           ? spending.amount - budget.amount
                           : 0;
                       return total + overBudget;
-                    }, 0)
+                    }, 0),
                   )}
                 </span>
               </div>

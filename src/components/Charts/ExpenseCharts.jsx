@@ -98,7 +98,15 @@ function ExpenseCharts() {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className={styles.tooltip}>
+        <div
+          className={styles.tooltip}
+          style={{
+            backgroundColor: "var(--bg-card)",
+            border: "1px solid var(--border-color)",
+            color: "var(--text-primary)",
+            boxShadow: "0 4px 6px var(--shadow-color)",
+          }}
+        >
           <p className={styles.tooltipLabel}>{label}</p>
           {payload.map((entry, index) => (
             <p
@@ -195,6 +203,7 @@ function ExpenseCharts() {
                       new Intl.NumberFormat("pl-PL", {
                         style: "currency",
                         currency: "PLN",
+                        maximumFractionDigits: 0,
                       }).format(value)
                     }
                     tick={{ fontSize: 12 }}
@@ -266,7 +275,12 @@ function ExpenseCharts() {
                         fontSize: "12px",
                       }}
                       formatter={(value, entry, index) => (
-                        <span style={{ color: "#374151", fontSize: "12px" }}>
+                        <span
+                          style={{
+                            color: "var(--text-secondary)",
+                            fontSize: "12px",
+                          }}
+                        >
                           {value}
                         </span>
                       )}
@@ -322,7 +336,12 @@ function ExpenseCharts() {
                         fontSize: "12px",
                       }}
                       formatter={(value, entry, index) => (
-                        <span style={{ color: "#374151", fontSize: "12px" }}>
+                        <span
+                          style={{
+                            color: "var(--text-secondary)",
+                            fontSize: "12px",
+                          }}
+                        >
                           {value}
                         </span>
                       )}

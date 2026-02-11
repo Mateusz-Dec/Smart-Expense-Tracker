@@ -2,11 +2,10 @@
   padding: 20px;
   border-radius: 12px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.95);
-
+  background: var(--bg-card);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px var(--shadow-color);
+  border: 1px solid var(--border-color);
 }
 
 .header {
@@ -20,7 +19,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #2c3e50;
+  color: var(--text-primary);
 }
 
 .title h3 {
@@ -32,7 +31,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #ef4444;
+  background: var(--expense-color);
   color: white;
   border: none;
   padding: 8px 12px;
@@ -43,7 +42,7 @@
 }
 
 .clearButton:hover {
-  background: #dc2626;
+  background: var(--warning-color);
   transform: translateY(-1px);
 }
 
@@ -62,34 +61,43 @@
 
 .filterGroup label {
   font-weight: 600;
-  color: #374151;
+  color: var(--text-primary);
   font-size: 0.9rem;
 }
 
 .select {
   font-size: 0.95rem;
-  color: #374151;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border-color: var(--border-color);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .select:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.2);
 }
 
 .select option {
-  color: #1f2937;
+  color: var(--text-primary);
+  background: var(--bg-card);
 }
 
 .searchInput {
   font-size: 0.9rem;
-  color: #374151;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border-color: var(--border-color);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .searchInput:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.15);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.15);
 }
 
 .activeFilters {
@@ -98,19 +106,19 @@
   flex-wrap: wrap;
   gap: 10px;
   padding: 15px;
-  background: #f8fafc;
+  background: var(--bg-secondary);
   border-radius: 8px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--accent-color);
 }
 
 .activeFilters span:first-child {
   font-weight: 600;
-  color: #374151;
+  color: var(--text-primary);
   margin-right: 5px;
 }
 
 .filterTag {
-  background: #667eea;
+  background: var(--accent-color);
   color: white;
   padding: 4px 10px;
   border-radius: 16px;
@@ -121,8 +129,8 @@
 .resultsCount {
   margin-left: auto;
   font-weight: 600;
-  color: #059669;
-  background: #d1fae5;
+  color: white;
+  background: var(--success-color);
   padding: 4px 10px;
   border-radius: 16px;
   font-size: 0.8rem;

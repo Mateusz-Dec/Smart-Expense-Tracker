@@ -45,21 +45,21 @@ function ExportData() {
         startDate = new Date(
           now.getFullYear(),
           now.getMonth() - 1,
-          now.getDate()
+          now.getDate(),
         );
         break;
       case "quarter":
         startDate = new Date(
           now.getFullYear(),
           now.getMonth() - 3,
-          now.getDate()
+          now.getDate(),
         );
         break;
       case "year":
         startDate = new Date(
           now.getFullYear() - 1,
           now.getMonth(),
-          now.getDate()
+          now.getDate(),
         );
         break;
       case "all":
@@ -68,7 +68,7 @@ function ExportData() {
     }
 
     return allTransactions.filter(
-      (transaction) => new Date(transaction.date) >= startDate
+      (transaction) => new Date(transaction.date) >= startDate,
     );
   };
 
@@ -111,7 +111,7 @@ function ExportData() {
     link.setAttribute("href", url);
     link.setAttribute(
       "download",
-      `wydatki_${new Date().toISOString().split("T")[0]}.csv`
+      `wydatki_${new Date().toISOString().split("T")[0]}.csv`,
     );
 
     document.body.appendChild(link);
@@ -153,7 +153,7 @@ function ExportData() {
     link.setAttribute("href", url);
     link.setAttribute(
       "download",
-      `wydatki_backup_${new Date().toISOString().split("T")[0]}.json`
+      `wydatki_backup_${new Date().toISOString().split("T")[0]}.json`,
     );
 
     document.body.appendChild(link);
@@ -201,10 +201,10 @@ function ExportData() {
       pdf.setTextColor(100, 116, 139);
       pdf.text(
         `Wygenerowano: ${new Date().toLocaleDateString(
-          "pl-PL"
+          "pl-PL",
         )} ${new Date().toLocaleTimeString("pl-PL")}`,
         margin,
-        yPosition
+        yPosition,
       );
       yPosition += 15;
 
@@ -220,7 +220,7 @@ function ExportData() {
       pdf.text(
         `Liczba transakcji: ${summaryData.totalTransactions}`,
         margin + 5,
-        yPosition
+        yPosition,
       );
       yPosition += 5;
 
@@ -228,7 +228,7 @@ function ExportData() {
       pdf.text(
         `Przychody: ${formatCurrency(summaryData.totalIncome)}`,
         margin + 5,
-        yPosition
+        yPosition,
       );
       yPosition += 5;
 
@@ -236,19 +236,19 @@ function ExportData() {
       pdf.text(
         `Wydatki: ${formatCurrency(summaryData.totalExpenses)}`,
         margin + 5,
-        yPosition
+        yPosition,
       );
       yPosition += 5;
 
       pdf.setTextColor(
         summaryData.balance >= 0 ? 5 : 220,
         summaryData.balance >= 0 ? 150 : 38,
-        summaryData.balance >= 0 ? 105 : 38
+        summaryData.balance >= 0 ? 105 : 38,
       );
       pdf.text(
         `Bilans: ${formatCurrency(summaryData.balance)}`,
         margin + 5,
-        yPosition
+        yPosition,
       );
       yPosition += 15;
 
@@ -293,7 +293,7 @@ function ExportData() {
           pdf.text(
             new Date(transaction.date).toLocaleDateString("pl-PL"),
             margin + 2,
-            yPosition + 4
+            yPosition + 4,
           );
 
           // Opis - skrócony jeśli za długi
@@ -315,12 +315,12 @@ function ExportData() {
           pdf.setTextColor(
             transaction.type === "income" ? 5 : 220,
             transaction.type === "income" ? 150 : 38,
-            transaction.type === "income" ? 105 : 38
+            transaction.type === "income" ? 105 : 38,
           );
           pdf.text(
             formatCurrency(transaction.amount),
             margin + 145,
-            yPosition + 4
+            yPosition + 4,
           );
 
           yPosition += 7;
@@ -340,7 +340,7 @@ function ExportData() {
 
       // Zapisz PDF
       pdf.save(
-        `raport_finansowy_${new Date().toISOString().split("T")[0]}.pdf`
+        `raport_finansowy_${new Date().toISOString().split("T")[0]}.pdf`,
       );
       toast.success("Raport PDF z polskimi znakami wygenerowany! 📄");
     } catch (error) {
@@ -399,23 +399,51 @@ function ExportData() {
       <div className={styles.summary}>
         <h3>Podsumowanie eksportu</h3>
         <div className={styles.summaryGrid}>
-          <div className={styles.summaryItem}>
+          <div
+            className={styles.summaryItem}
+            style={{
+              backgroundColor: "var(--bg-input)",
+              border: "1px solid var(--border-color)",
+              color: "var(--text-primary)",
+            }}
+          >
             <span>Transakcje:</span>
             <strong>{summaryData.totalTransactions}</strong>
           </div>
-          <div className={styles.summaryItem}>
+          <div
+            className={styles.summaryItem}
+            style={{
+              backgroundColor: "var(--bg-input)",
+              border: "1px solid var(--border-color)",
+              color: "var(--text-primary)",
+            }}
+          >
             <span>Przychody:</span>
             <strong className={styles.income}>
               {formatCurrency(summaryData.totalIncome)}
             </strong>
           </div>
-          <div className={styles.summaryItem}>
+          <div
+            className={styles.summaryItem}
+            style={{
+              backgroundColor: "var(--bg-input)",
+              border: "1px solid var(--border-color)",
+              color: "var(--text-primary)",
+            }}
+          >
             <span>Wydatki:</span>
             <strong className={styles.expense}>
               {formatCurrency(summaryData.totalExpenses)}
             </strong>
           </div>
-          <div className={styles.summaryItem}>
+          <div
+            className={styles.summaryItem}
+            style={{
+              backgroundColor: "var(--bg-input)",
+              border: "1px solid var(--border-color)",
+              color: "var(--text-primary)",
+            }}
+          >
             <span>Bilans:</span>
             <strong
               className={
@@ -507,10 +535,10 @@ function ExportData() {
           {isGeneratingPDF
             ? "Generowanie PDF..."
             : exportType === "pdf"
-            ? "Wygeneruj raport PDF"
-            : exportType === "csv"
-            ? "Eksportuj do CSV"
-            : "Utwórz backup JSON"}
+              ? "Wygeneruj raport PDF"
+              : exportType === "csv"
+                ? "Eksportuj do CSV"
+                : "Utwórz backup JSON"}
         </button>
       </div>
 

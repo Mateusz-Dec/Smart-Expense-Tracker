@@ -1,11 +1,10 @@
 .container {
-  background: rgba(255, 255, 255, 0.95);
-
+  background: var(--bg-card);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 25px;
-  margin-bottom: 20px;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  padding: 25px !important;
+  margin-bottom: 20px !important;
 }
 
 .header {
@@ -19,7 +18,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #2c3e50;
+  color: var(--text-primary);
 }
 
 .title h2 {
@@ -32,7 +31,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, #764ba2 100%);
   color: white;
   border: none;
   padding: 12px 20px;
@@ -44,20 +43,20 @@
 
 .addButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
 }
 
 .goalForm {
-  background: #f8fafc;
+  background: var(--bg-secondary);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 25px;
-  border: 2px dashed #cbd5e1;
+  border: 2px dashed var(--border-color);
 }
 
 .goalForm h3 {
   margin: 0 0 15px 0;
-  color: #374151;
+  color: var(--text-primary);
 }
 
 .form {
@@ -68,11 +67,14 @@
 
 .input {
   font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border-color: var(--border-color);
 }
 
 .input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.2);
 }
 
 .amountRow {
@@ -86,10 +88,9 @@
   align-items: center;
   gap: 12px;
 }
-
 .colorPicker span {
   font-weight: 600;
-  color: #374151;
+  color: var(--text-primary);
   font-size: 0.9rem;
 }
 
@@ -108,7 +109,7 @@
 }
 
 .colorOption.selected {
-  border-color: #374151;
+  border-color: var(--text-primary);
   transform: scale(1.1);
 }
 
@@ -121,7 +122,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(
+    135deg,
+    var(--income-color) 0%,
+    var(--success-color) 100%
+  );
   color: white;
   border: none;
   padding: 12px 20px;
@@ -139,7 +144,7 @@
 }
 
 .cancelButton {
-  background: #6b7280;
+  background: var(--text-muted);
   color: white;
   border: none;
   padding: 12px 20px;
@@ -151,7 +156,7 @@
 }
 
 .cancelButton:hover {
-  background: #4b5563;
+  background: var(--text-secondary);
 }
 
 .summary {
@@ -159,7 +164,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   margin-bottom: 25px;
-  background: #f1f5f9;
+  background: var(--bg-secondary);
   padding: 20px;
   border-radius: 12px;
 }
@@ -170,19 +175,19 @@
   align-items: center;
   gap: 8px;
   padding: 15px;
-  background: white;
+  background: var(--bg-input);
   border-radius: 8px;
   text-align: center;
 }
 
 .summaryItem span {
   font-size: 0.8rem;
-  color: #64748b;
+  color: var(--text-secondary);
 }
 
 .summaryItem strong {
   font-size: 1.1rem;
-  color: #374151;
+  color: var(--text-primary);
   font-weight: 700;
 }
 
@@ -195,7 +200,7 @@
 .emptyState {
   text-align: center;
   padding: 40px 20px;
-  color: #64748b;
+  color: var(--text-secondary);
 }
 
 .emptyState svg {
@@ -216,10 +221,11 @@
 
 .goalItem {
   display: flex;
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px var(--shadow-color);
   overflow: hidden;
+  border: 1px solid var(--border-color);
 }
 
 .goalColor {
@@ -241,7 +247,7 @@
 
 .goalInfo h4 {
   margin: 0 0 8px 0;
-  color: #2c3e50;
+  color: var(--text-primary);
   font-size: 1.1rem;
 }
 
@@ -253,7 +259,7 @@
 
 .amount {
   font-weight: 600;
-  color: #374151;
+  color: var(--text-primary);
   font-size: 0.9rem;
 }
 
@@ -262,18 +268,18 @@
   align-items: center;
   gap: 4px;
   font-size: 0.8rem;
-  color: #64748b;
+  color: var(--text-secondary);
 }
 
 .deadline.overdue {
-  color: #dc2626;
+  color: var(--expense-color);
   font-weight: 600;
 }
 
 .deleteButton {
   background: none;
   border: none;
-  color: #ef4444;
+  color: var(--expense-color);
   cursor: pointer;
   padding: 8px;
   border-radius: 4px;
@@ -281,7 +287,7 @@
 }
 
 .deleteButton:hover {
-  background: #fef2f2;
+  background: rgba(239, 68, 68, 0.1);
 }
 
 .progressSection {
@@ -291,7 +297,7 @@
 .progressBar {
   width: 100%;
   height: 8px;
-  background: #e2e8f0;
+  background: var(--border-color);
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 8px;
@@ -312,12 +318,12 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
-  color: #64748b;
+  color: var(--text-secondary);
 }
 
 .progressText span:first-child {
   font-weight: 600;
-  color: #374151;
+  color: var(--text-primary);
 }
 
 .remaining {
@@ -330,7 +336,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #10b981;
+  color: var(--income-color);
   font-weight: 600;
 }
 
@@ -341,7 +347,7 @@
 .updateInput {
   width: 100%;
   padding: 8px 12px;
-  border: 2px solid #e1e8ed;
+  border: 2px solid var(--border-color);
   border-radius: 6px;
   font-size: 0.9rem;
   transition: border-color 0.2s;
@@ -349,7 +355,7 @@
 
 .updateInput:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: var(--accent-color);
 }
 
 /* Responsywność */
@@ -393,49 +399,49 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  background: #f0f9ff;
-  border: 1px solid #bae6fd;
+  background: rgba(99, 102, 241, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.2);
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 20px;
 }
 
 .instruction strong {
-  color: #0369a1;
+  color: var(--accent-color);
 }
 
 .instruction p {
   margin: 4px 0 0 0;
   font-size: 0.9rem;
-  color: #475569;
+  color: var(--text-secondary);
 }
 
 .savingsInfo {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #f1f5f9;
+  background: var(--bg-input);
   padding: 8px 12px;
   border-radius: 6px;
   margin-top: 10px;
   font-size: 0.85rem;
-  color: #475569;
+  color: var(--text-secondary);
 }
 
 .savingsInfo strong {
-  color: #059669;
+  color: var(--income-color);
 }
 
 .transactions {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--border-color);
 }
 
 .transactions small {
   display: block;
   margin-bottom: 6px;
-  color: #64748b;
+  color: var(--text-secondary);
   font-weight: 600;
 }
 
@@ -448,10 +454,10 @@
 }
 
 .transaction span:first-child {
-  color: #64748b;
+  color: var(--text-secondary);
 }
 
 .transaction span:last-child {
-  color: #059669;
+  color: var(--income-color);
   font-weight: 600;
 }

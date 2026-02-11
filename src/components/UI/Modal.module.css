@@ -15,9 +15,9 @@
 }
 
 .modal {
-  background: white;
+  background: var(--bg-card);
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px var(--shadow-color);
   max-width: 450px;
   width: 100%;
   animation: slideUp 0.3s ease;
@@ -29,22 +29,39 @@
   align-items: center;
   justify-content: space-between;
   padding: 25px 30px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .modalHeader.error {
-  background: linear-gradient(135deg, #fee2e2, #fecaca);
-  color: #dc2626;
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.1),
+    rgba(239, 68, 68, 0.05)
+  );
+  color: var(--expense-color);
+  border-bottom: 2px solid var(--expense-color);
 }
 
 .modalHeader.success {
-  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-  color: #059669;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.1),
+    rgba(16, 185, 129, 0.05)
+  );
+  color: var(--success-color);
+  border-bottom: 2px solid var(--success-color);
 }
 
 .modalHeader.info {
-  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-  color: #2563eb;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1),
+    rgba(99, 102, 241, 0.05)
+  );
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .titleContainer {
@@ -72,18 +89,19 @@
 
 .closeButton:hover {
   opacity: 1;
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--bg-hover);
 }
 
 .modalBody {
   padding: 30px;
+  background: var(--bg-card);
 }
 
 .modalBody p {
   margin: 0;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #374151;
+  color: var(--text-secondary);
   text-align: center;
 }
 
