@@ -3,11 +3,8 @@
   border-radius: 20px;
   box-shadow: 0 8px 32px var(--shadow-color);
   border: 1px solid var(--border-color);
-}
-
-/* Layout helpers for header and container spacing */
-.container {
-  padding: 20px;
+  padding: 25px !important;
+  margin-bottom: 20px !important;
 }
 
 .header {
@@ -15,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 25px;
 }
 
 .title {
@@ -26,8 +23,9 @@
 
 .title h2 {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--text-primary);
+  font-weight: 700;
 }
 
 .budgetForm {
@@ -47,7 +45,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr auto;
   gap: 12px;
-  align-items: end;
+  align-items: stretch;
 }
 
 .input {
@@ -89,14 +87,13 @@ select.select::placeholder {
 .formActions {
   display: flex;
   gap: 12px;
-  width: 100%;
+  align-items: stretch;
 }
 
 .saveButton {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 100%;
   background: linear-gradient(
     135deg,
     var(--income-color) 0%,
@@ -104,13 +101,13 @@ select.select::placeholder {
   );
   color: white;
   border: none;
-  padding: 12px 20px;
+  padding: 0 20px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
-  flex: 1;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .saveButton:hover {

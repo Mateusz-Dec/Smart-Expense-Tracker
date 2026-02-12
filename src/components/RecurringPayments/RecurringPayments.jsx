@@ -354,7 +354,6 @@ function RecurringPayments() {
                   Dodaj płatność
                 </button>
               </div>
-              </div>
             </div>
           </div>
         )}
